@@ -1,0 +1,13 @@
+services:
+  apt-cacher-ng:
+    container_name: apt-cacher-ng
+    image: apt-cacher-ng
+    restart: unless-stopped
+    ports:
+      - '3142:3142'
+    volumes:
+      - 'local_apt_cache:/var/cache/apt-cacher-ng:rw'
+      # - '/etc/resolv.conf:/etc/resolv.conf:ro'
+
+volumes:
+  local_apt_cache:
